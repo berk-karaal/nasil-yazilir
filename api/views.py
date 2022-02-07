@@ -1,5 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.reverse import reverse
 from rest_framework import status, permissions
 
 from django.utils import timezone
@@ -9,6 +10,17 @@ from api.serializers import WordSerializer, QuizSerializer
 from api.models import Word, Quiz
 
 import random
+
+
+class APIRoot(APIView):
+    def get(self, request):
+        return Response(
+            {
+                "words": reverse("list-create-words", request=request),
+                "daily-quiz": reverse("get-daily-quiz", request=request),
+                "random-quiz": reverse("get-random-quiz", request=request),
+            }
+        )
 
 
 class ListCreateWords(APIView):
