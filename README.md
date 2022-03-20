@@ -2,6 +2,8 @@
 Adminler tarafından eklenen yazımı karıştırılan kelimleri kullanıcıya sunan basit bir Django Rest Framework çalışması.<br>
 [nasil-yazilir.herokuapp.com](https://nasil-yazilir.herokuapp.com)
 
+Web app: [berkkaraal.com/nasil-yazilir/web/](https://berkkaraal.com/nasil-yazilir/web/)
+
 ### Günlük quizler nasıl oluşturuluyor?
 Günlük quiz url'ine([daily/](https://nasil-yazilir.herokuapp.com/daily/)) request atıldığında server eğer o günün(request'in atıldığı gün) quizi oluşturulmuşsa onu response'luyor. Eğer o günün quizi oluşturulmamışsa, önceliği hiç gösterilmeyen veya bir quizde kullanımı en eski olan kelimelere vererek yeni bir quiz oluşturup kaydediyor ve o quizi response'luyor.
 
