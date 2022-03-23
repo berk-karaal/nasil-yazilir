@@ -23,11 +23,13 @@ const quiz_div_wrong_color = "#9e2e2e";
 const quiz_div_correct_color = "#3a9434";
 const continue_button = document.getElementById("continue-button");
 const question_text = document.getElementById("quiestion-text");
+const quiz_loading_div = document.getElementById("quiz-loading-div");
 let options = [document.getElementById("opt1"), document.getElementById("opt2")]
 
 
 getJSON("https://nasil-yazilir.herokuapp.com/daily/?format=json").then(data => {
     questions = data["words"];
+    quiz_is_ready();
     display_question(0);
 }).catch(error => {
     console.error(error);
@@ -35,8 +37,14 @@ getJSON("https://nasil-yazilir.herokuapp.com/daily/?format=json").then(data => {
 });
 
 function fetch_failed() {
+    quiz_loading_div.style.display = "none";
     quiz_div.style.display = "none";
     document.getElementById("fetch-error-div").style.display = "block";
+}
+
+function quiz_is_ready() {
+    quiz_loading_div.style.display = "none";
+    quiz_div.style.display = "block";
 }
 
 function option_clicked(opt_num) {
